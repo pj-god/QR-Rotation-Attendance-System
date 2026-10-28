@@ -1561,18 +1561,23 @@
         if (modalCountdown) modalCountdown.textContent = timeStr;
 
         if (tokenProgressBar) {
-            const lifespan = 30000;
-            const pct = Math.max(0, Math.min(100, (remaining / lifespan) * 100));
-            tokenProgressBar.style.width = pct + '%';
+    const lifespan = 12_000; // 12 seconds in milliseconds
 
-            if (pct < 25) {
-                tokenProgressBar.style.background = 'var(--danger)';
-            } else if (pct < 50) {
-                tokenProgressBar.style.background = 'var(--warning)';
-            } else {
-                tokenProgressBar.style.background = 'var(--primary-gradient)';
-            }
+    const pct = Math.max(
+            0,
+            Math.min(100, (remaining / lifespan) * 100)
+        );
+
+        tokenProgressBar.style.width = `${pct}%`;
+
+        if (pct < 25) {
+            tokenProgressBar.style.background = 'var(--danger)';
+        } else if (pct < 50) {
+            tokenProgressBar.style.background = 'var(--warning)';
+        } else {
+            tokenProgressBar.style.background = 'var(--primary-gradient)';
         }
+    }
     }
 
     function renderAttendanceTable(students) {

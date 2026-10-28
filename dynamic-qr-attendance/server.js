@@ -14,7 +14,7 @@ const PORT = Number(process.env.PORT || 3000);
 const PUBLIC_DIR = path.join(__dirname, 'public');
 const DB_PATH = path.join(__dirname, 'attendance.db');
 
-const TOKEN_LIFESPAN_MS = 30000;
+const TOKEN_LIFESPAN_MS = 12000;
 const MAX_USES = 50;
 
 // Optional configuration through environment variables.
